@@ -1,0 +1,41 @@
+{
+  "name": "preview-growmystock",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/digitalkdogg/preview-growmystock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitalkdogg/preview-growmystock/issues"
+  },
+  "homepage": "https://github.com/digitalkdogg/preview-growmystock#readme",
+  "description": "GrowMyStock marketing preview page",
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
+    "@vitejs/plugin-react": "^6.0.1",
+    "autoprefixer": "^10.5.0",
+    "gh-pages": "^6.3.0",
+    "postcss": "^8.5.14",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3"
+  }
+}

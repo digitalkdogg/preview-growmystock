@@ -1,0 +1,169 @@
+
+<style>
+  .mock-root { font-family: var(--font-sans); color: var(--color-text-primary); }
+  .mock-nav { background: #0a1628; padding: 14px 32px; display: flex; justify-content: space-between; align-items: center; border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; }
+  .mock-nav .logo { color: #4ade80; font-size: 18px; font-weight: 500; }
+  .mock-nav .cta-btn { background: #15803d; color: white; border: none; border-radius: 6px; padding: 7px 16px; font-size: 13px; cursor: pointer; }
+  .mock-hero { background: linear-gradient(135deg, #0a1628 0%, #0f2544 60%, #0d3320 100%); padding: 56px 40px 64px; text-align: center; }
+  .mock-hero .badge { display: inline-block; background: rgba(74,222,128,0.15); color: #4ade80; border: 1px solid rgba(74,222,128,0.3); border-radius: 20px; font-size: 12px; padding: 4px 14px; margin-bottom: 20px; }
+  .mock-hero h1 { color: white; font-size: 32px; font-weight: 500; margin: 0 0 12px; line-height: 1.25; }
+  .mock-hero h1 span { color: #4ade80; }
+  .mock-hero p { color: #94a3b8; font-size: 14px; margin: 0 auto 28px; max-width: 480px; line-height: 1.6; }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; }
+  .btn-primary { background: #15803d; color: white; border: none; border-radius: 8px; padding: 10px 24px; font-size: 14px; cursor: pointer; }
+  .btn-secondary { background: transparent; color: #94a3b8; border: 1px solid #334155; border-radius: 8px; padding: 10px 24px; font-size: 14px; cursor: pointer; }
+  .mock-body { background: var(--color-background-primary); padding: 0 32px 32px; }
+  .section-label { text-align: center; padding: 36px 0 20px; }
+  .section-label p { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-text-secondary); margin: 0 0 6px; }
+  .section-label h2 { font-size: 22px; font-weight: 500; margin: 0; }
+  .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+  .feat-card { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 16px; border: 0.5px solid var(--color-border-tertiary); }
+  .feat-icon { width: 32px; height: 32px; border-radius: 8px; background: #dcfce7; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; }
+  .feat-icon svg { width: 16px; height: 16px; }
+  .feat-card h3 { font-size: 14px; font-weight: 500; margin: 0 0 6px; }
+  .feat-card p { font-size: 12px; color: var(--color-text-secondary); margin: 0; line-height: 1.5; }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 32px; }
+  .stat-card { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 14px; text-align: center; border: 0.5px solid var(--color-border-tertiary); }
+  .stat-card .num { font-size: 24px; font-weight: 500; color: #15803d; }
+  .stat-card .lbl { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
+  .contact-section { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 32px 0; border-top: 0.5px solid var(--color-border-tertiary); }
+  .contact-left h2 { font-size: 20px; font-weight: 500; margin: 0 0 10px; }
+  .contact-left p { font-size: 13px; color: var(--color-text-secondary); margin: 0 0 20px; line-height: 1.6; }
+  .contact-info-item { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; color: var(--color-text-secondary); }
+  .contact-info-dot { width: 8px; height: 8px; border-radius: 50%; background: #15803d; flex-shrink: 0; }
+  .form-card { background: var(--color-background-secondary); border-radius: var(--border-radius-lg); padding: 20px; border: 0.5px solid var(--color-border-tertiary); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .form-group { margin-bottom: 10px; }
+  .form-group label { font-size: 12px; color: var(--color-text-secondary); display: block; margin-bottom: 4px; }
+  .form-input { width: 100%; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: 6px; padding: 8px 10px; font-size: 13px; box-sizing: border-box; color: var(--color-text-primary); }
+  .form-textarea { width: 100%; background: var(--color-background-primary); border: 0.5px solid var(--color-border-secondary); border-radius: 6px; padding: 8px 10px; font-size: 13px; height: 70px; box-sizing: border-box; color: var(--color-text-primary); resize: none; }
+  .form-submit { width: 100%; background: #15803d; color: white; border: none; border-radius: 8px; padding: 10px; font-size: 14px; cursor: pointer; margin-top: 4px; }
+  .mock-footer { background: #0a1628; padding: 20px 32px; display: flex; justify-content: space-between; align-items: center; border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg); }
+  .mock-footer span { color: #475569; font-size: 12px; }
+  .mock-footer .logo { color: #4ade80; font-size: 14px; font-weight: 500; }
+</style>
+
+<div class="mock-root">
+  <div class="mock-nav">
+    <span class="logo">GrowMyStock</span>
+    <div style="display:flex;gap:20px;align-items:center;">
+      <span style="color:#94a3b8;font-size:13px;">Features</span>
+      <span style="color:#94a3b8;font-size:13px;">How it works</span>
+      <span style="color:#94a3b8;font-size:13px;">Contact</span>
+      <button class="cta-btn">Request Access</button>
+    </div>
+  </div>
+
+  <div class="mock-hero">
+    <div class="badge">AI-Powered Market Intelligence</div>
+    <h1>Invest smarter with<br><span>AI-driven insights</span></h1>
+    <p>MoneyGoUp's DeepMoney engine surfaces high-GPS opportunities using machine learning, macro data, and real-time market signals.</p>
+    <div class="hero-btns">
+      <button class="btn-primary">Request early access</button>
+      <button class="btn-secondary">See how it works</button>
+    </div>
+  </div>
+
+  <div class="mock-body">
+    <div class="section-label">
+      <p>Platform capabilities</p>
+      <h2>Everything you need to find alpha</h2>
+    </div>
+
+    <div class="features-grid">
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M2 12L6 7l3 3 5-6" stroke="#15803d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>AI Prediction Engine</h3>
+        <p>109-feature ML model with Monte Carlo dropout for multi-horizon price targets and confidence scoring.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="5.5" stroke="#15803d" stroke-width="1.5"/><path d="M8 5v3.5l2 1.5" stroke="#15803d" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>DeepMoney Discovery</h3>
+        <p>Recursive news scraping, macro tailwind scoring, and GPS-ranked stock and ETF candidates daily.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="5" height="5" rx="1" stroke="#15803d" stroke-width="1.5"/><rect x="9" y="2" width="5" height="5" rx="1" stroke="#15803d" stroke-width="1.5"/><rect x="2" y="9" width="5" height="5" rx="1" stroke="#15803d" stroke-width="1.5"/><rect x="9" y="9" width="5" height="5" rx="1" stroke="#15803d" stroke-width="1.5"/></svg>
+        </div>
+        <h3>3-Bucket Strategy</h3>
+        <p>Portfolio, Watchlist, and Discovery signals surfaced on your personalized dashboard every session.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M8 2a6 6 0 100 12A6 6 0 008 2z" stroke="#15803d" stroke-width="1.5"/><path d="M5 8h6M8 5v6" stroke="#15803d" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Macro Integration</h3>
+        <p>World Bank GDP, FDI, inflation, and trade signals baked into every prediction and recommendation.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M3 13V7m3.5 6V4M10 13V9m3-4v8" stroke="#15803d" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Hot ETF Module</h3>
+        <p>AI, Semis, Cloud, and Cyber-focused ETFs filtered by liquidity gates and thematic momentum.</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 16 16" fill="none"><path d="M13 5l-5 5-3-3-3 3" stroke="#15803d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Regime Detection</h3>
+        <p>GMM clustering on VIX and credit spreads identifies Risk-On, Risk-Off, and high-volatility regimes.</p>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="num">109+</div>
+        <div class="lbl">Feature columns per prediction</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">v2.3</div>
+        <div class="lbl">DeepMoney engine generation</div>
+      </div>
+      <div class="stat-card">
+        <div class="num">4</div>
+        <div class="lbl">Prediction horizons (1d / 1m / 6m / 1y)</div>
+      </div>
+    </div>
+
+    <div class="contact-section">
+      <div class="contact-left">
+        <h2>Request early access</h2>
+        <p>GrowMyStock is in private preview. Leave your details and we'll be in touch about getting you set up.</p>
+        <div class="contact-info-item"><div class="contact-info-dot"></div>No credit card required for preview</div>
+        <div class="contact-info-item"><div class="contact-info-dot"></div>Personalized onboarding session</div>
+        <div class="contact-info-item"><div class="contact-info-dot"></div>Priority access for early registrants</div>
+      </div>
+      <div class="form-card">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full name</label>
+            <input class="form-input" placeholder="Jane Smith" readonly />
+          </div>
+          <div class="form-group">
+            <label>Email address</label>
+            <input class="form-input" placeholder="jane@acme.com" readonly />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Company (optional)</label>
+          <input class="form-input" placeholder="Acme Capital" readonly />
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea class="form-textarea" placeholder="Tell us how you invest today..." readonly></textarea>
+        </div>
+        <button class="form-submit">Send request</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="mock-footer">
+    <span class="logo">GrowMyStock</span>
+    <span>Preview © 2026 — MoneyGoUp Intelligence</span>
+  </div>
+</div>
