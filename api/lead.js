@@ -1,61 +1,41 @@
-import express from 'express'
-import cors from 'cors'
 import 'dotenv/config.js'
 import pool from './db.js'
 
-const app = express()
-const PORT = process.env.PORT || 3001
-
 const CORS_ORIGIN = process.env.CORS_ORIGIN || 'https://digitalkdogg.github.io'
-
-app.use(express.json())
-app.use(
-  cors({
-    origin: CORS_ORIGIN,
-    methods: ['POST'],
-    credentials: false,
-  }),
-)
-
 const rateLimitMap = new Map()
 
-function getRateLimitKey(ip) {
-  return `lead:${ip}`
-}
-
 function isRateLimited(ip) {
-  const key = getRateLimitKey(ip)
   const now = Date.now()
-  const lastRequest = rateLimitMap.get(key) || 0
+  const lastRequest = rateLimitMap.get(ip) || 0
 
   if (now - lastRequest < 60000) {
     return true
   }
 
-  rateLimitMap.set(key, now)
+  rateLimitMap.set(ip, now)
   return false
 }
 
-app.post('/api/visit', async (req, res) => {
-  try {
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown'
-    const userAgent = req.headers['user-agent'] || 'unknown'
-
-    const connection = await pool.getConnection()
-    await connection.execute('INSERT INTO preview_visits (ip_address, user_agent) VALUES (?, ?)', [ip, userAgent])
-    connection.release()
-
-    res.json({ ok: true })
-  } catch (error) {
-    console.error('Visit error:', error.message)
-    res.status(500).json({ ok: false, error: 'Failed to log visit' })
+export default async function handler(req, res) {
+  // CORS preflight
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Origin', CORS_ORIGIN)
+    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS')
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type')
+    return res.status(200).end()
   }
-})
 
-app.post('/api/lead', async (req, res) => {
+  // CORS header
+  res.setHeader('Access-Control-Allow-Origin', CORS_ORIGIN)
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({ ok: false, error: 'Method not allowed' })
+  }
+
   try {
     const { name, email, company, message } = req.body
 
+    // Validation
     if (!name || typeof name !== 'string' || name.trim().length === 0) {
       return res.status(400).json({ ok: false, error: 'Name is required' })
     }
@@ -69,10 +49,16 @@ app.post('/api/lead', async (req, res) => {
       return res.status(400).json({ ok: false, error: 'Message is required' })
     }
 
-    const ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress || 'unknown'
+    const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.socket.remoteAddress || 'unknown'
 
+    // Rate limiting
     if (isRateLimited(ip)) {
       return res.status(429).json({ ok: false, error: 'Too many requests. Please try again later.' })
+    }
+
+    if (!pool) {
+      console.error('Database pool not initialized')
+      return res.status(500).json({ ok: false, error: 'Database connection failed' })
     }
 
     const userAgent = req.headers['user-agent'] || 'unknown'
@@ -87,11 +73,7 @@ app.post('/api/lead', async (req, res) => {
 
     res.json({ ok: true })
   } catch (error) {
-    console.error('Error inserting lead:', error)
-    res.status(500).json({ ok: false, error: 'Failed to submit form' })
+    console.error('Lead error:', error.message, error.code)
+    res.status(500).json({ ok: false, error: error.message || 'Failed to submit form' })
   }
-})
-
-app.listen(PORT, () => {
-  console.log(`API server running on port ${PORT}`)
-})
+}
