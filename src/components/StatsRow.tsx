@@ -9,9 +9,9 @@ export function StatsRow() {
     <div className="px-8 mb-8">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
         {stats.map((stat, i) => (
-          <div key={i} className="bg-slate-800 rounded p-3.5 border border-slate-700 text-center">
-            <div className="text-2xl font-medium text-brand mb-1">{stat.num}</div>
-            <div className="text-xs text-slate-400">{stat.label}</div>
+          <div key={i} className="bg-emerald-50 rounded p-3.5 border border-emerald-200 text-center">
+            <div className="text-2xl font-medium text-emerald-600 mb-1">{stat.num}</div>
+            <div className="text-xs text-emerald-700">{stat.label}</div>
           </div>
         ))}
       </div>

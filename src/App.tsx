@@ -11,10 +11,10 @@ export function App() {
   useVisitLogger()
 
   return (
-    <div className="bg-slate-950 text-white min-h-screen">
+    <div className="bg-white text-emerald-950 min-h-screen">
       <NavBar />
       <HeroSection />
-      <div className="bg-slate-950">
+      <div className="bg-white">
         <FeaturesGrid />
         <StatsRow />
         <HowItWorksSection />

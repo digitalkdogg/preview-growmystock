@@ -75,16 +75,16 @@ export function FeaturesGrid() {
   return (
     <div id="features" className="px-8 py-12">
       <div className="text-center mb-10">
-        <p className="text-xs uppercase tracking-widest text-slate-500 mb-2">Platform capabilities</p>
-        <h2 className="text-2xl font-medium text-white">Everything you need to find alpha</h2>
+        <p className="text-xs uppercase tracking-widest text-emerald-600 mb-2">Platform capabilities</p>
+        <h2 className="text-2xl font-medium text-emerald-950">Everything you need to find alpha</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
         {features.map((feat, i) => (
-          <div key={i} className="bg-slate-800 rounded-lg p-4 border border-slate-700">
-            <div className="w-8 h-8 bg-brand-light rounded mb-2.5 flex items-center justify-center">{feat.icon}</div>
-            <h3 className="text-sm font-medium text-white mb-1.5">{feat.title}</h3>
-            <p className="text-xs text-slate-400 leading-relaxed">{feat.description}</p>
+          <div key={i} className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+            <div className="w-8 h-8 bg-emerald-100 rounded mb-2.5 flex items-center justify-center">{feat.icon}</div>
+            <h3 className="text-sm font-medium text-emerald-950 mb-1.5">{feat.title}</h3>
+            <p className="text-xs text-emerald-700 leading-relaxed">{feat.description}</p>
           </div>
         ))}
       </div>

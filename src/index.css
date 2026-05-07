@@ -2,7 +2,7 @@
 
 @layer base {
   body {
-    @apply bg-slate-950 text-white;
+    @apply bg-white text-emerald-950;
     font-family: 'DM Sans', system-ui, sans-serif;
   }
 }
