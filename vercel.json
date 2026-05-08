@@ -1,7 +1,7 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "env": {
+  "env":{
     "DB_HOST": "@db_host",
     "DB_PORT": "@db_port",
     "DB_USER": "@db_user",
