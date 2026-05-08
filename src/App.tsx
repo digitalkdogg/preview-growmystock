@@ -8,15 +8,15 @@ import { Footer } from './components/Footer'
 
 export function App() {
   return (
-    <div className="bg-white text-emerald-950 min-h-screen">
+    <div className="min-h-screen" style={{ backgroundColor: '#f7faf7' }}>
       <NavBar />
       <HeroSection />
-      <div className="bg-white">
+      <div className="max-w-6xl mx-auto" style={{ backgroundColor: '#f7faf7' }}>
         <FeaturesGrid />
         <StatsRow />
-        <HowItWorksSection />
-        <ContactSection />
       </div>
+      <HowItWorksSection />
+      <ContactSection />
       <Footer />
     </div>
   )

@@ -7,15 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
-          DEFAULT: '#15803d',
-          dark: '#166534',
-          light: '#dcfce7',
+        forest: {
+          DEFAULT: '#2d5a35',
+          light: '#3a7d44',
         },
-        navy: {
-          DEFAULT: '#0a1628',
-          mid: '#0f2544',
-        },
+        offwhite: '#f7faf7',
       },
       fontFamily: {
         sans: ['"DM Sans"', 'system-ui', 'sans-serif'],

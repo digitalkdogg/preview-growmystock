@@ -18,27 +18,29 @@ const steps = [
 
 export function HowItWorksSection() {
   return (
-    <div id="howitworks" className="px-8 py-12 border-t border-emerald-200">
-      <div className="text-center mb-10">
-        <p className="text-xs uppercase tracking-widest text-emerald-600 mb-2">How it works</p>
-        <h2 className="text-2xl font-medium text-emerald-950">Three-step workflow</h2>
-      </div>
+    <div id="howitworks" className="w-full border-t py-12" style={{ borderColor: 'rgba(58, 125, 68, 0.2)', backgroundColor: '#f7faf7' }}>
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="text-center mb-10">
+          <p className="text-xs uppercase tracking-widest mb-2" style={{ color: '#3a7d44' }}>How it works</p>
+          <h2 className="text-2xl font-medium" style={{ color: '#1a1a1a' }}>Three-step workflow</h2>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        {steps.map((step, i) => (
-          <div key={i} className="relative">
-            <div className="bg-emerald-50 rounded-lg p-6 border border-emerald-200 text-center">
-              <div className="w-10 h-10 bg-emerald-600 text-white rounded-full flex items-center justify-center font-semibold text-sm mx-auto mb-4">
-                {step.num}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {steps.map((step, i) => (
+            <div key={i} className="relative">
+              <div className="rounded-lg p-6 border text-center" style={{ backgroundColor: 'rgba(58, 125, 68, 0.03)', borderColor: 'rgba(58, 125, 68, 0.15)' }}>
+                <div className="w-10 h-10 text-white rounded-full flex items-center justify-center font-semibold text-sm mx-auto mb-4" style={{ backgroundColor: '#3a7d44' }}>
+                  {step.num}
+                </div>
+                <h3 className="text-base font-medium mb-2" style={{ color: '#1a1a1a' }}>{step.title}</h3>
+                <p className="text-sm" style={{ color: '#4a5a50' }}>{step.description}</p>
               </div>
-              <h3 className="text-base font-medium text-emerald-950 mb-2">{step.title}</h3>
-              <p className="text-sm text-emerald-700">{step.description}</p>
+              {i < steps.length - 1 && (
+                <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5" style={{ background: 'linear-gradient(to right, rgba(58, 125, 68, 0.3), transparent)' }} />
+              )}
             </div>
-            {i < steps.length - 1 && (
-              <div className="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-emerald-200 to-transparent" />
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   )
