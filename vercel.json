@@ -1,9 +1,6 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "api": {
-    "baseDirectory": "api"
-  },
   "env": {
     "DB_HOST": "@db_host",
     "DB_PORT": "@db_port",
