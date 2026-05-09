@@ -73,10 +73,10 @@ const features = [
 
 export function FeaturesGrid() {
   return (
-    <div id="features" className="px-6 py-12">
+    <section id="features" className="px-6 py-12" aria-labelledby="features-heading">
       <div className="text-center mb-10">
         <p className="text-xs uppercase tracking-widest mb-2" style={{ color: '#3a7d44' }}>Platform capabilities</p>
-        <h2 className="text-2xl font-medium" style={{ color: '#1a1a1a' }}>Everything you need to find alpha</h2>
+        <h2 id="features-heading" className="text-2xl font-medium" style={{ color: '#1a1a1a' }}>Everything you need to find alpha</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
@@ -88,6 +88,6 @@ export function FeaturesGrid() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   )
 }

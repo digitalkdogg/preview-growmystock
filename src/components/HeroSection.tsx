@@ -7,8 +7,9 @@ export function HeroSection() {
   }
 
   return (
-    <div 
+    <section 
       className="px-6 py-16 text-center border-b relative overflow-hidden"
+      aria-label="Hero Introduction"
       style={{
         backgroundColor: '#f7faf7',
         borderColor: '#e8eee8',
@@ -43,6 +44,6 @@ export function HeroSection() {
           See how it works
         </button>
       </div>
-    </div>
+    </section>
   )
 }

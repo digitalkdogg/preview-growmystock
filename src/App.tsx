@@ -10,13 +10,15 @@ export function App() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: '#f7faf7' }}>
       <NavBar />
-      <HeroSection />
-      <div className="max-w-6xl mx-auto" style={{ backgroundColor: '#f7faf7' }}>
-        <FeaturesGrid />
-        <StatsRow />
-      </div>
-      <HowItWorksSection />
-      <ContactSection />
+      <main>
+        <HeroSection />
+        <div className="max-w-6xl mx-auto" style={{ backgroundColor: '#f7faf7' }}>
+          <FeaturesGrid />
+          <StatsRow />
+        </div>
+        <HowItWorksSection />
+        <ContactSection />
+      </main>
       <Footer />
     </div>
   )
