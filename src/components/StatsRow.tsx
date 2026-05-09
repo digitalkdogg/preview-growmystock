@@ -1,7 +1,7 @@
 const stats = [
-  { num: '109+', label: 'Feature columns per prediction' },
-  { num: 'v2.3', label: 'DeepMoney engine generation' },
-  { num: '4', label: 'Prediction horizons (1d · 1m · 6m · 1y)' },
+  { num: '109+', label: 'Feature columns per prediction for deep market context and signal precision' },
+  { num: 'v2.3', label: 'DeepMoney engine generation — refined through years of algorithmic evolution' },
+  { num: '4', label: 'Prediction horizons (1d · 1m · 6m · 1y) for flexible, multi-timeframe strategy' },
 ]
 
 export function StatsRow() {

@@ -57,7 +57,7 @@ export function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2.5 mb-2.5">
         <div>
-          <label className="text-sm block mb-1" style={{ color: '#3a7d44' }}>Full name :</label>
+          <label className="text-sm block mb-1 text-left" style={{ color: '#3a7d44' }}>Full name :</label>
           <input
             type="text"
             name="name"
@@ -69,7 +69,7 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label className="text-sm block mb-1" style={{ color: '#3a7d44' }}>Email address :</label>
+          <label className="text-sm block mb-1 text-left" style={{ color: '#3a7d44' }}>Email address :</label>
           <input
             type="email"
             name="email"
@@ -83,7 +83,7 @@ export function ContactForm() {
       </div>
 
       <div className="mb-3">
-        <label className="text-sm block mb-1" style={{ color: '#3a7d44' }}>Message : 
+        <label className="text-sm block mb-1 text-left" style={{ color: '#3a7d44' }}>Message : 
           <span className="text-xs italics ml-1" style={{ color: '#3a7d44' }}><i> Please Note: all serious inquires will be honored</i></span>
         </label>        
         <textarea
