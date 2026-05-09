@@ -70,14 +70,14 @@ api/
    - Logs lead + IP + user agent to `preview_leads` table
    - Returns `{ ok: true }` or `{ ok: false, error: "message" }`
 
-**Environment Variables** (set in Vercel/Railway dashboard):
+Environment Variables (set in Vercel/Railway dashboard):
 ```
-DB_HOST=growmystock-db-growmystock-5ff9.c.aivencloud.com
+DB_HOST=your-db-hostname.example.com
 DB_PORT=21439
-DB_USER=avnadmin
+DB_USER=your_db_user
 DB_PASSWORD=<real password>
 DB_DATABASE=growmystock
-CORS_ORIGIN=https://digitalkdogg.github.io
+CORS_ORIGIN=https://your-domain.github.io
 PORT=3001 (optional)
 ```
 
